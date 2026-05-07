@@ -52,7 +52,7 @@ const Header = () => {
         </nav>
         <div className="hidden md:block">
           <Button asChild variant="default" size="sm" className="bg-foreground text-background hover:opacity-90">
-            <a {...calendlyProps}>Get Started</a>
+            <a {...calendlyProps}>Book Strategy Session</a>
           </Button>
         </div>
         <button
@@ -76,7 +76,7 @@ const Header = () => {
               </Link>
             ))}
             <Button asChild className="mt-2 bg-foreground text-background">
-              <a {...calendlyProps}>Get Started</a>
+              <a {...calendlyProps}>Book Strategy Session</a>
             </Button>
           </div>
         </div>

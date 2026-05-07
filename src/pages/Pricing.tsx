@@ -15,7 +15,7 @@ const tiers = [
       "Stories-only content format",
       "Full campaign report with analytics",
     ],
-    cta: "Get Started",
+    cta: "Book a call",
   },
   {
     name: "Pro",
@@ -27,7 +27,7 @@ const tiers = [
       "Reels + Stories content mix",
       "Maximum reach and engagement",
     ],
-    cta: "Get Started",
+    cta: "Book a call",
     featured: true,
   },
   {
@@ -36,11 +36,11 @@ const tiers = [
     cadence: "per month",
     desc: "High-converting creator content engineered for paid ads.",
     features: [
-      "5–7 professional UGC videos",
+      "5 professional UGC videos",
       "Full usage rights for your ads",
       "High-converting content production",
     ],
-    cta: "Get Started",
+    cta: "Book a call",
   },
   {
     name: "Enterprise",
