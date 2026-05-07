@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
+import { calendlyProps } from "@/lib/booking";
 
 const nav = [
   { to: "/services", label: "Services" },
@@ -51,7 +52,7 @@ const Header = () => {
         </nav>
         <div className="hidden md:block">
           <Button asChild variant="default" size="sm" className="bg-foreground text-background hover:opacity-90">
-            <Link to="/contact">Book a strategy call</Link>
+            <a {...calendlyProps}>Get Started</a>
           </Button>
         </div>
         <button
@@ -75,7 +76,7 @@ const Header = () => {
               </Link>
             ))}
             <Button asChild className="mt-2 bg-foreground text-background">
-              <Link to="/contact">Book a strategy call</Link>
+              <a {...calendlyProps}>Get Started</a>
             </Button>
           </div>
         </div>
