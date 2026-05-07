@@ -3,6 +3,7 @@ import { ArrowRight, BarChart3, Megaphone, ShieldCheck, Target, Video, Workflow 
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { calendlyProps } from "@/lib/booking";
 
 const blocks = [
   {
@@ -94,7 +95,7 @@ const Services = () => (
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild className="bg-foreground text-background hover:opacity-90">
-            <Link to="/contact">Start a brief <ArrowRight className="ml-1 h-4 w-4" /></Link>
+            <a {...calendlyProps}>Get Started <ArrowRight className="ml-1 h-4 w-4" /></a>
           </Button>
           <Button asChild variant="outline">
             <Link to="/pricing">View pricing</Link>
