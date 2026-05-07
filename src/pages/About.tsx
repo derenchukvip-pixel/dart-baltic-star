@@ -82,7 +82,7 @@ const About = () => (
             <p className="mt-2 max-w-xl text-muted-foreground">We respond to every brief within one business day.</p>
           </div>
           <Button asChild size="lg" className="bg-foreground text-background hover:opacity-90">
-            <a {...calendlyProps}>Get Started</a>
+            <a {...calendlyProps}>Book a call</a>
           </Button>
         </div>
       </div>

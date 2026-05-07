@@ -61,7 +61,7 @@ const Index = () => (
           </p>
           <div className="mt-8 flex animate-fade-up flex-wrap gap-3" style={{ animationDelay: "0.2s" }}>
             <Button asChild size="lg" className="bg-foreground text-background hover:opacity-90">
-              <a {...calendlyProps}>Get Started <ArrowRight className="ml-1 h-4 w-4" /></a>
+              <a {...calendlyProps}>Book a call <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-border bg-card hover:bg-muted">
               <a href="#pricing" onClick={scrollToPricing}>Learn More</a>
@@ -215,7 +215,7 @@ const Index = () => (
           </div>
           <div className="flex flex-col gap-3 lg:col-span-5 lg:items-end">
             <Button asChild size="lg" className="bg-amber-grad text-foreground hover:opacity-90">
-              <a {...calendlyProps}>Get Started <ArrowRight className="ml-1 h-4 w-4" /></a>
+              <a {...calendlyProps}>Book a call <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="ghost" className="text-background hover:bg-background/10">
               <Link to="/pricing"><FileText className="mr-2 h-4 w-4" /> See pricing</Link>

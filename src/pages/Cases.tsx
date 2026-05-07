@@ -95,7 +95,7 @@ const Cases = () => (
         </p>
         <div className="mt-6">
           <Button asChild className="bg-amber-grad text-foreground hover:opacity-90">
-            <a {...calendlyProps}>Get Started</a>
+            <a {...calendlyProps}>Book a call</a>
           </Button>
         </div>
       </div>

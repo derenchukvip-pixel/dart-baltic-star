@@ -95,7 +95,7 @@ const Services = () => (
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild className="bg-foreground text-background hover:opacity-90">
-            <a {...calendlyProps}>Get Started <ArrowRight className="ml-1 h-4 w-4" /></a>
+            <a {...calendlyProps}>Book a call <ArrowRight className="ml-1 h-4 w-4" /></a>
           </Button>
           <Button asChild variant="outline">
             <Link to="/pricing">View pricing</Link>
