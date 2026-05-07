@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { calendlyProps } from "@/lib/booking";
 
 const cases = [
   {
@@ -95,7 +95,7 @@ const Cases = () => (
         </p>
         <div className="mt-6">
           <Button asChild className="bg-amber-grad text-foreground hover:opacity-90">
-            <Link to="/contact">Request results deck</Link>
+            <a {...calendlyProps}>Get Started</a>
           </Button>
         </div>
       </div>

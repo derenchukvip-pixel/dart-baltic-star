@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom";
 import { ArrowRight, BarChart3, CheckCircle2, FileText, Globe2, Megaphone, Sparkles, Target, Video } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import Marquee from "@/components/Marquee";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero.jpg";
+import { Link } from "react-router-dom";
+import { calendlyProps } from "@/lib/booking";
+
+const scrollToPricing = (e: React.MouseEvent) => {
+  e.preventDefault();
+  document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 const stats = [
   { value: "€10.5B", label: "Global influencer spend in 2025" },
@@ -55,10 +61,10 @@ const Index = () => (
           </p>
           <div className="mt-8 flex animate-fade-up flex-wrap gap-3" style={{ animationDelay: "0.2s" }}>
             <Button asChild size="lg" className="bg-foreground text-background hover:opacity-90">
-              <Link to="/contact">Book a strategy call <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <a {...calendlyProps}>Get Started <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-border bg-card hover:bg-muted">
-              <Link to="/cases">See case studies</Link>
+              <a href="#pricing" onClick={scrollToPricing}>Learn More</a>
             </Button>
           </div>
           <ul className="mt-10 grid max-w-xl grid-cols-1 gap-2 sm:grid-cols-2">
@@ -191,8 +197,8 @@ const Index = () => (
       </div>
     </section>
 
-    {/* TESTIMONIAL / CTA BAND */}
-    <section className="container-tight pb-24">
+    {/* PRICING CTA BAND */}
+    <section id="pricing" className="container-tight scroll-mt-24 pb-24">
       <div className="relative overflow-hidden rounded-3xl bg-foreground p-10 text-background md:p-16">
         <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-amber-grad opacity-20 blur-3xl" aria-hidden />
         <div className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-signal opacity-25 blur-3xl" aria-hidden />
@@ -209,7 +215,7 @@ const Index = () => (
           </div>
           <div className="flex flex-col gap-3 lg:col-span-5 lg:items-end">
             <Button asChild size="lg" className="bg-amber-grad text-foreground hover:opacity-90">
-              <Link to="/contact">Request a pilot plan <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <a {...calendlyProps}>Get Started <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="ghost" className="text-background hover:bg-background/10">
               <Link to="/pricing"><FileText className="mr-2 h-4 w-4" /> See pricing</Link>

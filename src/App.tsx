@@ -8,7 +8,6 @@ import Services from "./pages/Services.tsx";
 import Cases from "./pages/Cases.tsx";
 import Pricing from "./pages/Pricing.tsx";
 import About from "./pages/About.tsx";
-import Contact from "./pages/Contact.tsx";
 import Blog from "./pages/Blog.tsx";
 import Legal from "./pages/Legal.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -27,7 +26,6 @@ const App = () => (
           <Route path="/cases" element={<Cases />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/legal/:slug" element={<Legal />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Linkedin, Instagram } from "lucide-react";
 import Logo from "./Logo";
+import { calendlyProps } from "@/lib/booking";
 
 const Footer = () => (
   <footer className="mt-32 border-t border-border bg-card">
@@ -29,7 +30,7 @@ const Footer = () => (
             <li><Link to="/pricing" className="hover:text-foreground">Pricing</Link></li>
             <li><Link to="/about" className="hover:text-foreground">About</Link></li>
             <li><Link to="/blog" className="hover:text-foreground">Blog</Link></li>
-            <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
+            <li><a {...calendlyProps} className="hover:text-foreground">Book a call</a></li>
           </ul>
         </div>
 

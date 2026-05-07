@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
+import { calendlyProps } from "@/lib/booking";
 
 const NotFound = () => {
   const location = useLocation();
@@ -23,7 +24,7 @@ const NotFound = () => {
             <Link to="/">Back to home</Link>
           </Button>
           <Button asChild variant="outline">
-            <Link to="/contact">Contact us</Link>
+            <a {...calendlyProps}>Book a call</a>
           </Button>
         </div>
       </section>

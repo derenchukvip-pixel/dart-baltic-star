@@ -1,34 +1,46 @@
-import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { calendlyProps } from "@/lib/booking";
 
 const tiers = [
   {
-    name: "Pilot Sprint",
-    price: "€4,900",
-    cadence: "one-off · 4 weeks",
-    desc: "Prove the channel with a tightly-scoped, single-market pilot.",
-    features: ["1 market", "3–5 creators", "Brief + approvals", "Reporting deck", "1 paid amplification test"],
-    cta: "Start a pilot",
+    name: "Starter",
+    price: "€900+",
+    cadence: "per month",
+    desc: "Kickstart awareness in a single Baltic market.",
+    features: [
+      "5 creators for awareness campaigns",
+      "Stories-only content format",
+      "Full campaign report with analytics",
+    ],
+    cta: "Get Started",
   },
   {
-    name: "Core Retainer",
-    price: "€6,500",
+    name: "Pro",
+    price: "€3,900+",
     cadence: "per month",
-    desc: "Always-on creator output for one Baltic market.",
-    features: ["1 market", "6–10 creators / month", "UGC content batch", "Whitelisting setup", "Monthly business review"],
-    cta: "Talk to us",
+    desc: "Dominate your niche with always-on creator output.",
+    features: [
+      "15+ creators for niche dominance",
+      "Reels + Stories content mix",
+      "Maximum reach and engagement",
+    ],
+    cta: "Get Started",
     featured: true,
   },
   {
-    name: "Regional Retainer",
-    price: "€12,500",
+    name: "UGC",
+    price: "€1,700+",
     cadence: "per month",
-    desc: "One operating system across Estonia, Latvia and Lithuania.",
-    features: ["3 markets", "Local creator pods", "Cross-Baltic dashboard", "Paid amplification managed", "Quarterly strategy review"],
-    cta: "Scale regionally",
+    desc: "High-converting creator content engineered for paid ads.",
+    features: [
+      "5–7 professional UGC videos",
+      "Full usage rights for your ads",
+      "High-converting content production",
+    ],
+    cta: "Get Started",
   },
   {
     name: "Enterprise",
@@ -93,7 +105,7 @@ const Pricing = () => (
               ))}
             </ul>
             <Button asChild className={`mt-8 w-full ${t.featured ? "bg-amber-grad text-foreground hover:opacity-90" : "bg-foreground text-background hover:opacity-90"}`}>
-              <Link to="/contact">{t.cta}</Link>
+              <a {...calendlyProps}>{t.cta}</a>
             </Button>
           </div>
         ))}

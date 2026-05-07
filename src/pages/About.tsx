@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { Compass, HeartHandshake, LineChart, MapPin, Sparkles } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { calendlyProps } from "@/lib/booking";
 
 const values = [
   { icon: Compass, name: "Clarity", desc: "We say what we will deliver, what it will cost, and what we will measure." },
@@ -82,7 +82,7 @@ const About = () => (
             <p className="mt-2 max-w-xl text-muted-foreground">We respond to every brief within one business day.</p>
           </div>
           <Button asChild size="lg" className="bg-foreground text-background hover:opacity-90">
-            <Link to="/contact">Get in touch</Link>
+            <a {...calendlyProps}>Get Started</a>
           </Button>
         </div>
       </div>
