@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { calendlyProps } from "@/lib/booking";
 
 const tiers = [
   {
@@ -105,7 +105,7 @@ const Pricing = () => (
               ))}
             </ul>
             <Button asChild className={`mt-8 w-full ${t.featured ? "bg-amber-grad text-foreground hover:opacity-90" : "bg-foreground text-background hover:opacity-90"}`}>
-              <Link to="/contact">{t.cta}</Link>
+              <a {...calendlyProps}>{t.cta}</a>
             </Button>
           </div>
         ))}
