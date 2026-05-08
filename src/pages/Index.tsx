@@ -1,4 +1,5 @@
 import { ArrowRight, BarChart3, CheckCircle2, FileText, Globe2, Megaphone, Sparkles, Target, Video } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import Marquee from "@/components/Marquee";
@@ -12,28 +13,15 @@ const scrollToPricing = (e: React.MouseEvent) => {
   document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-const stats = [
-  { value: "€10.5B", label: "Global influencer spend in 2025" },
-  { value: "93%", label: "Internet penetration across the Baltics" },
-  { value: "1", label: "Operating system, three markets" },
-  { value: "60+", label: "Vetted Baltic creators in network" },
-];
+const serviceIcons = [Target, Video, Megaphone, BarChart3];
 
-const services = [
-  { icon: Target, title: "Creator campaign management", desc: "Sourcing, briefing, negotiation, approvals and reporting — engineered for outcomes, not vanity." },
-  { icon: Video, title: "UGC production", desc: "Creator-made short-form content for Meta, TikTok and landing pages, scoped for paid usage." },
-  { icon: Megaphone, title: "Paid amplification & whitelisting", desc: "Boost the creators that work, kill the ones that don't. Hooks, formats, and clean attribution." },
-  { icon: BarChart3, title: "Strategy & analytics", desc: "Market fit, KPI frameworks, competitor scans and the dashboards your CFO will actually read." },
-];
-
-const proofs = [
-  "Creator fees, media spend and rights priced separately",
-  "GDPR-compliant lead capture and consent",
-  "Disclosure templates for EE, LV, LT regulations",
-  "Paid amplification ready out of the box",
-];
-
-const Index = () => (
+const Index = () => {
+  const { t } = useTranslation();
+  const stats = t("home.stats", { returnObjects: true }) as { value: string; label: string }[];
+  const services = t("home.services", { returnObjects: true }) as { title: string; desc: string }[];
+  const proofs = t("home.proofs", { returnObjects: true }) as string[];
+  const markets = t("home.markets", { returnObjects: true }) as { c: string; code: string; note: string }[];
+  return (
   <Layout>
     <SEO
       title="DART Agency — Baltic Influencer Marketing for Estonia, Latvia & Lithuania"
@@ -48,23 +36,22 @@ const Index = () => (
         <div className="lg:col-span-7">
           <span className="inline-flex animate-fade-in items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
             <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-highlight" />
-            Baltic creator growth partner · Vilnius
+            {t("home.badge")}
           </span>
           <h1 className="mt-6 animate-fade-up text-balance text-5xl font-bold leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Creator campaigns that Baltic customers <span className="relative whitespace-nowrap">actually
+            {t("home.titlePart1")}<span className="relative whitespace-nowrap">{t("home.titleHighlight")}
               <svg className="absolute -bottom-1 left-0 h-2 w-full text-highlight" viewBox="0 0 200 8" fill="none" preserveAspectRatio="none"><path d="M2 6 Q 50 2, 100 5 T 198 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg>
-            </span> act on.
+            </span>{t("home.titlePart2")}
           </h1>
           <p className="mt-6 max-w-xl animate-fade-up text-lg leading-relaxed text-muted-foreground" style={{ animationDelay: "0.1s" }}>
-            We help brands across Estonia, Latvia and Lithuania turn creator partnerships into measurable reach,
-            stronger social proof, and sales-ready content.
+            {t("home.subtitle")}
           </p>
           <div className="mt-8 flex animate-fade-up flex-wrap gap-3" style={{ animationDelay: "0.2s" }}>
             <Button asChild size="lg" className="bg-foreground text-background hover:opacity-90">
-              <a {...calendlyProps}>Book a call <ArrowRight className="ml-1 h-4 w-4" /></a>
+              <a {...calendlyProps}>{t("common.bookCall")} <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-border bg-card hover:bg-muted">
-              <a href="#pricing" onClick={scrollToPricing}>Learn More</a>
+              <a href="#pricing" onClick={scrollToPricing}>{t("common.learnMore")}</a>
             </Button>
           </div>
           <ul className="mt-10 grid max-w-xl grid-cols-1 gap-2 sm:grid-cols-2">
@@ -82,13 +69,13 @@ const Index = () => (
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/15 bg-background/85 p-4 backdrop-blur-md">
               <div className="flex items-center justify-between text-xs font-medium text-muted-foreground">
-                <span>Live campaign · LT</span><span className="tabular text-pine">+212% CTR</span>
+                <span>{t("home.liveLabel")}</span><span className="tabular text-pine">+212% CTR</span>
               </div>
               <div className="mt-2 h-2 overflow-hidden rounded-full bg-muted">
                 <div className="h-full w-[78%] rounded-full bg-amber-grad" />
               </div>
               <div className="mt-2 flex justify-between text-xs text-muted-foreground tabular">
-                <span>4 creators</span><span>1.2M reach</span><span>€0.04 CPM</span>
+                <span>{t("home.liveCreators")}</span><span>{t("home.liveReach")}</span><span>€0.04 CPM</span>
               </div>
             </div>
           </div>
@@ -103,16 +90,14 @@ const Index = () => (
     <section className="container-tight py-24">
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <p className="text-sm font-semibold uppercase tracking-wider text-highlight">The DART thesis</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-highlight">{t("home.thesisTag")}</p>
           <h2 className="mt-3 text-balance text-4xl font-bold tracking-tight md:text-5xl">
-            Most influencer campaigns fail for the same reason.
+            {t("home.thesisTitle")}
           </h2>
         </div>
         <div className="lg:col-span-7">
           <p className="text-lg leading-relaxed text-muted-foreground">
-            They are planned like PR stunts and judged like performance ads. We bridge that gap. Our team
-            handles strategy, creator selection, briefing, approvals, reporting and content reuse — so your
-            campaigns do more than generate vanity metrics.
+            {t("home.thesisBody")}
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
             {stats.map((s) => (
@@ -131,21 +116,23 @@ const Index = () => (
       <div className="container-tight">
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-highlight">What we do</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-highlight">{t("home.servicesTag")}</p>
             <h2 className="mt-3 max-w-2xl text-balance text-4xl font-bold tracking-tight md:text-5xl">
-              Built for brands that want more than one-off posts.
+              {t("home.servicesTitle")}
             </h2>
           </div>
           <Link to="/services" className="hidden text-sm font-medium text-muted-foreground hover:text-foreground md:inline-flex md:items-center md:gap-1">
-            All services <ArrowRight className="h-4 w-4" />
+            {t("common.allServices")} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
         <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2">
-          {services.map((s, i) => (
+          {services.map((s, i) => {
+            const Icon = serviceIcons[i];
+            return (
             <div key={s.title} className="group relative bg-card p-8 transition-smooth hover:bg-background">
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-foreground text-background transition-smooth group-hover:bg-amber-grad group-hover:text-foreground">
-                  <s.icon className="h-5 w-5" />
+                  <Icon className="h-5 w-5" />
                 </div>
                 <div>
                   <div className="text-xs tabular text-muted-foreground">0{i + 1}</div>
@@ -154,7 +141,8 @@ const Index = () => (
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -163,27 +151,21 @@ const Index = () => (
     <section className="container-tight py-24">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-highlight">Three markets · one team</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-highlight">{t("home.marketsTag")}</p>
           <h2 className="mt-3 text-balance text-4xl font-bold tracking-tight md:text-5xl">
-            One operating system. Three local nuances.
+            {t("home.marketsTitle")}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            We run campaigns across Estonia, Latvia and Lithuania with the same dashboard, the same reporting
-            standard and the same compliance posture — but with creators, language and cultural cues that are
-            native to each market.
+            {t("home.marketsBody")}
           </p>
           <div className="mt-6">
             <Button asChild variant="outline" className="border-border bg-card">
-              <Link to="/about">Read the playbook <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <Link to="/about">{t("common.readPlaybook")} <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
           </div>
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
-          {[
-            { c: "Estonia", code: "EE", note: "Highest digital-service maturity in the EU." },
-            { c: "Latvia", code: "LV", note: "Strong DTC and beauty creator ecosystem." },
-            { c: "Lithuania", code: "LT", note: "EU-leading e-commerce share — our home base." },
-          ].map((m) => (
+          {markets.map((m) => (
             <div key={m.c} className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-smooth hover:shadow-soft">
               <div className="flex items-center gap-2">
                 <Globe2 className="h-4 w-4 text-highlight" />
@@ -206,25 +188,25 @@ const Index = () => (
           <div className="lg:col-span-7">
             <Sparkles className="h-6 w-6 text-highlight" />
             <h2 className="mt-4 text-balance text-3xl font-bold leading-tight md:text-5xl">
-              Start with a pilot. Scale with a system.
+              {t("home.ctaTitle")}
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-background/75">
-              Tell us your market, your goal and your timeline. We'll reply with the best-fit format —
-              pilot sprint, retainer, regional programme, or audit.
+              {t("home.ctaBody")}
             </p>
           </div>
           <div className="flex flex-col gap-3 lg:col-span-5 lg:items-end">
             <Button asChild size="lg" className="bg-amber-grad text-foreground hover:opacity-90">
-              <a {...calendlyProps}>Book a call <ArrowRight className="ml-1 h-4 w-4" /></a>
+              <a {...calendlyProps}>{t("common.bookCall")} <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="ghost" className="text-background hover:bg-background/10">
-              <Link to="/pricing"><FileText className="mr-2 h-4 w-4" /> See pricing</Link>
+              <Link to="/pricing"><FileText className="mr-2 h-4 w-4" /> {t("common.seePricing")}</Link>
             </Button>
           </div>
         </div>
       </div>
     </section>
   </Layout>
-);
+  );
+};
 
 export default Index;
